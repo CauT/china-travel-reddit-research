@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "china-travel-reddit-research"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["psycopg[binary]==3.2.10"]
+
+[project.scripts]
+ctr = "ctr.cli:main"
+
+[tool.setuptools]
+packages = ["ctr"]

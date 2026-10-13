@@ -1,0 +1,75 @@
+{
+  "source_id": "reddit_travelchina",
+  "name": "Reddit r/travelchina travel questions only",
+  "owner": "Reddit and content authors",
+  "source_type": "official_api",
+  "source_family": "community",
+  "source_grade": "S5",
+  "language": "en",
+  "country_code": "CN",
+  "adapter": "reddit_oauth_v1",
+  "base_url": "https://oauth.reddit.com",
+  "start_urls": [
+    "/r/travelchina/new?limit=100&raw_json=1"
+  ],
+  "allowed_domains": [
+    "oauth.reddit.com"
+  ],
+  "subreddits": [
+    "travelchina"
+  ],
+  "enabled": false,
+  "mode": "manual",
+  "schedule": null,
+  "request_budget": 50,
+  "host_rate_limit_seconds": 20,
+  "max_file_bytes": 5242880,
+  "max_frontier": 1200,
+  "max_retries": 2,
+  "access_policy": "Explicit Reddit approval for this research purpose and official OAuth required; RFR or written approved exception required. Optional comments require separate approved scope. No HTML/RSS/JSON scraping fallback.",
+  "robots_policy": "Reviewed 2026-10-13; robots is for search engines, not API users. Public .json/search/comment RSS disallowed; no alternate route enabled.",
+  "terms_status": "reviewed_approval_missing",
+  "redistribution_policy": "No publication, resale, external model use or training; private local analysis only, subject to approval.",
+  "retention_hours": 48,
+  "archive_policy": "Private content-addressed files; deletion overrides immutability, purge entire affected envelope and derived payloads.",
+  "snippet_policy": "Local deterministic redaction; maximum 360 characters; community_unverified answers, never official advice.",
+  "deletion_sync_required": true,
+  "contains_user_generated_content": true,
+  "contains_personal_data": true,
+  "discovery_rules": [
+    "new listing cursor",
+    "bounded /api/info post rechecks",
+    "optional top-level answers: max20 per selected question, at most one request per five requests"
+  ],
+  "exclusion_rules": [
+    "profiles",
+    "private messages",
+    "login",
+    "quarantined/private communities",
+    "NSFW",
+    "ads",
+    "account settings",
+    "token links",
+    "non-travel threads"
+  ],
+  "access_review": {
+    "reviewed_on": "2026-10-13",
+    "publicly_accessible": "OAuth required; content not probed",
+    "terms_reviewed": true,
+    "robots_reviewed": true,
+    "authentication_required": true,
+    "personal_data_risk": "UGC; no author/profile ingestion, local redaction required",
+    "redistribution_allowed": false,
+    "retention_limit_hours": 48,
+    "deletion_sync_required": true,
+    "operator_approval": false,
+    "platform_approval": "missing"
+  },
+  "discovery_keywords": [
+    "China travel",
+    "visa",
+    "payments",
+    "transport",
+    "itinerary"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "database": "ctr_reddit",
+  "private_root": "/absolute/private/path/ctr_reddit",
+  "writer_dsn": "REPLACE_WITH_PRIVATE_WRITER_DSN",
+  "reader_dsn": "REPLACE_WITH_PRIVATE_READER_DSN",
+  "reddit": {
+    "approval_file": "/absolute/private/path/approval-record.txt",
+    "approved_purpose": "private_china_travel_question_research",
+    "approved_mechanism": "official_oauth",
+    "approved_subreddits": [
+      "travelchina"
+    ],
+    "approval_expires_at": "2030-01-01T00:00:00+00:00",
+    "token_file": "/absolute/private/path/reddit-access-token.txt",
+    "user_agent": "linux:approved-app-id:v1.0 (by /u/contact_name)",
+    "approved_optional_comments": false
+  }
+}
