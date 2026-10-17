@@ -10,6 +10,7 @@ from ctr.network import AccessBlocked
 import test_system as fixtures
 SOURCE,FIXTURE,listing=fixtures.SOURCE,fixtures.FIXTURE,fixtures.listing
 
+@unittest.skipUnless(FIXTURE and Path(FIXTURE).is_file(), 'set CTR_FIXTURE_CONFIG to run PostgreSQL integration tests')
 class FullPipeline(unittest.TestCase):
     setUpClass=classmethod(fixtures.Integration.setUpClass.__func__)
     tearDownClass=classmethod(fixtures.Integration.tearDownClass.__func__)

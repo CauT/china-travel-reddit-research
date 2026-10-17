@@ -17,10 +17,7 @@ from ctr.cli import audit
 
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=json.loads((ROOT/'config/source.json').read_text())
-FIXTURE=os.environ.get(
-    'CTR_FIXTURE_CONFIG',
-    str(Path.home()/'.config'/'china-travel-reddit-research'/'fixture.json'),
-)
+FIXTURE=os.environ.get('CTR_FIXTURE_CONFIG','')
 
 def listing(oid='abc1', title='How can I use Alipay while travelling in China?', body='I am visiting Beijing for five days. What should I prepare?', **kwargs):
     data=dict(id=oid,title=title,selftext=body,subreddit='travelchina',created_utc=1750000000,edited=False,num_comments=0)
@@ -78,6 +75,7 @@ class Unit(unittest.TestCase):
         for url in ['https://www.reddit.com/r/travelchina.json','http://oauth.reddit.com/api/info','https://oauth.reddit.com/api/me','https://oauth.reddit.com:443/api/info','https://oauth.reddit.com/api/info?token=secret' ,'https://oauth.reddit.com/api/info?id=bad_abc']:
             with self.assertRaises(ValueError):validate_url(url)
 
+@unittest.skipUnless(FIXTURE and Path(FIXTURE).is_file(), 'set CTR_FIXTURE_CONFIG to run PostgreSQL integration tests')
 class Integration(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

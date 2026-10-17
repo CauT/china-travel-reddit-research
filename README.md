@@ -4,6 +4,10 @@ A bounded, PostgreSQL-backed reference implementation for collecting distinct qu
 
 The repository contains source code and synthetic tests only. It ships with Reddit access disabled, contains no OAuth credentials, approval reference, user-generated content, database password, local runtime receipt, or real collection result.
 
+This is an unofficial independent project. It is not endorsed by or affiliated
+with Reddit, Inc. The MIT license covers the software only and grants no rights
+to Reddit data or user content.
+
 ## What it does
 
 - Uses only `https://oauth.reddit.com` endpoints allowed by the source profile.
@@ -55,6 +59,10 @@ Run the synthetic suite without Reddit network access:
 .venv/bin/python scripts/check_delivery.py
 ```
 
+The default test run executes the pure synthetic unit suite and skips
+PostgreSQL integration cases. Set `CTR_FIXTURE_CONFIG` to a protected fixture
+configuration to run all 27 tests.
+
 After approval, configuration review and an explicit decision to enable the source profile, use the staged admission sequence:
 
 ```sh
@@ -72,3 +80,6 @@ Add `--answers` consistently to every admission stage only when direct comments 
 PostgreSQL is the sole authoritative state store. Private archive, payload and manifest files live under `private_root`; safe queries use `safe_questions`, `safe_answers` and `safe_statistics`. Do not send raw content or private files to remote models. Run `sync` and `expire` at least hourly while real content is retained, and continue expiry even when source access is unavailable.
 
 No public dataset or website integration is included.
+
+See [NOTICE.md](NOTICE.md) for the platform and data-rights notice and
+[SECURITY.md](SECURITY.md) for private vulnerability reporting guidance.
