@@ -35,7 +35,7 @@ Requirements:
 Create an isolated environment and install the pinned dependency:
 
 ```sh
-python3.12 -m venv .venv
+python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
 ```
 
